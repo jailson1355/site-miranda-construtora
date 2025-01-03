@@ -1,0 +1,209 @@
+/* Resetando algumas configurações padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilização do corpo */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Estilização do cabeçalho */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+/* Seção de imagens */
+.imagens {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.imagem {
+    width: 30%;
+    padding: 10px;
+}
+
+.imagem img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilização do botão */
+.call-to-action {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.call-to-action button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.call-to-action button:hover {
+    background-color: #218838;
+}
+
+/* Estilização do rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+/* Estilos gerais para o formulário */
+/* Estilos gerais para o formulário */
+#formularioContato {
+    width: 100%; /* Permite que o formulário ocupe toda a largura possível */
+    max-width: 400px; /* Define um limite para a largura */
+    padding: 20px; /* Adiciona espaço interno ao formulário */
+    background-color: #f9f9f9; /* Fundo do formulário */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombras para efeito */
+    display: none; /* Começa oculto */
+    box-sizing: border-box; /* Garante que o padding não afete o tamanho */
+    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+    max-height: 80vh; /* Define um limite para a altura */
+}
+
+/* Centralização vertical usando flexbox */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    font-family: Arial, sans-serif;
+}
+
+/* Responsividade: ajusta a altura do formulário em telas pequenas */
+@media (max-width: 480px) {
+    #formularioContato {
+        width: 90%; /* Reduz a largura do formulário em telas pequenas */
+    }
+}
+
+/* Fundo do site */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #0073e6, #80d4ff);
+    color: #fff;
+    text-align: center;
+}
+
+/* Estilo do cabeçalho */
+header {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-bottom: 2px solid #fff;
+}
+
+h1, h2, h3 {
+    margin: 10px 0;
+}
+
+/* Estilo do botão */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff8c00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e67e22;
+}
+
+/* WhatsApp link */
+.link-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.whatsapp-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+/* Seção de imagens */
+.imagens {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.imagem img {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Formulário oculto */
+.formulario-oculto {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 400px;
+    color: #fff;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input, textarea {
+    width: calc(100% - 10px);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Rodapé */
+footer {
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-top: 2px solid #fff;
+    position: relative;
+}
+
+
