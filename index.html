@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +19,7 @@
             line-height: 1.6;
             color: #333;
             background-color: #f4f4f9;
-            margin: 0;
+            font-size: 1rem;
         }
 
         header {
@@ -30,17 +31,6 @@
 
         header h1 {
             font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        header h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        header h3 {
-            font-size: 1rem;
-            margin-bottom: 1rem;
         }
 
         .link-whatsapp {
@@ -71,8 +61,9 @@
             gap: 1rem;
         }
 
-        .imagem img {
+        .imagens img {
             width: 100%;
+            max-width: 500px;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -107,74 +98,57 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
-        form label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        form input, form textarea {
-            width: 100%;
-            padding: 0.5rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        form button {
-            background: #007bff;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        form button:hover {
-            background: #0056b3;
-        }
-
         footer {
             background: #007bff;
             color: white;
             text-align: center;
             padding: 1rem;
-            margin-top: 2rem;
         }
 
-        footer p {
+        .carta-apresentacao {
+            background: url('img/background.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .paragrafo-extenso {
+            font-size: 0.85rem;
+            line-height: 1.3;
             margin: 0.5rem 0;
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Miranda Construtora Empreendimento</h1>
         <h2>Excelência em serviços residenciais e comerciais</h2>
         <h3>Contate-nos pelo WhatsApp: (21) 97931-6601 ou (21) 97999-8628</h3>
-        <a href="https://wa.me/5521979316601?text=Quero%20falar%20com%20Jailson%20ou%20Douglas" class="link-whatsapp">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 30px; height: 30px; margin-right: 10px;">
+        <a href="https://wa.me/5521979316601?text=Quero%20falar%20com%20Jailson%20ou%20Douglas" class="link-whatsapp"
+            aria-label="Abrir o WhatsApp para contato">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"
+                style="width: 30px; height: 30px; margin-right: 10px;">
             Fale Conosco
         </a>
     </header>
     <main>
         <section class="imagens">
             <div class="imagem">
-                <img src="download.jpg" alt="Prédio moderno">
+                <img src="img/download.jpg" alt="Prédio moderno">
             </div>
             <div class="imagem">
-                <img src="faxineira.jpg" alt="Serviços de faxina">
+                <img src="img/faxineira.jpg" alt="Serviços de faxina">
             </div>
             <div class="imagem">
-                <img src="imagem.jpg" alt="Edifício corporativo">
-            </div>
-            <div class="imagem">
-                <img src="images.jpg" alt="Prédio residencial">
+                <img src="img/imagem.jpg" alt="Edifício corporativo">
+                <img src="img/obras.jpg" alt="Sendo construída">
+                <img src="img/pinturas.jpg" alt="Acabamentos e pinturas">
+                <img src="img/limpeza.jpg" alt="Cozinha limpa">
             </div>
         </section>
         <section class="call-to-action">
-            <button onclick="mostrarFormulario()">Saiba Mais</button>
+            <button onclick="mostrarFormulario()" aria-label="Exibir formulário de contato">Saiba Mais</button>
         </section>
         <div id="formularioContato" style="display: none;">
             <h3>Entre em Contato</h3>
@@ -192,8 +166,18 @@
     <footer>
         <p>&copy; 2024 Miranda Construtora Empreendimento</p>
         <p>Especialistas em limpeza pós-obra e serviços residenciais</p>
+        <p class="paragrafo-extenso">
+            Prezados Senhores(a),<br>
+            Permita-nos apresentar. Somos a MIRANDA CONSTRUTORA LTDA, uma empresa do ramo de construção civil que já nasceu
+            comprometida com a inovação e a qualidade na execução de serviços. Temos engenheiros, técnicos e mão de obra
+            especializada formando uma equipe comprometida que não hesita em cumprir suas funções com dedicação e
+            comprometimento.
+        </p>
+        <p class="paragrafo-extenso">
+            Nossa empresa está preparada para atender clientes de pequeno, médio e grande porte, oferecendo sempre uma
+            solução inteligente e econômica para quem precisa de reforma ou construir.
+        </p>
     </footer>
-
     <script>
         function mostrarFormulario() {
             const formulario = document.getElementById('formularioContato');
@@ -202,16 +186,18 @@
 
         document.getElementById('formContato').addEventListener('submit', function (event) {
             event.preventDefault();
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const mensagem = document.getElementById('mensagem').value.trim();
 
-            const nome = document.getElementById('nome').value;
+            if (!nome || !email || !mensagem) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+
             alert(`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso.`);
-            this.reset();
-            mostrarFormulario();
         });
     </script>
 </body>
+
 </html>
-
-
-
-
