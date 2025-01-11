@@ -26,11 +26,15 @@
             background: #007bff;
             color: white;
             text-align: center;
-            padding: 1rem 0.5rem;
+            padding: 1rem;
         }
 
         header h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
+        }
+
+        header h2 {
+            font-size: 1rem;
         }
 
         .link-whatsapp {
@@ -49,21 +53,26 @@
             background: #1b9e4d;
         }
 
+        .link-whatsapp img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+
         main {
             max-width: 1200px;
-            margin: 2rem auto;
+            margin: 1rem auto;
             padding: 0 1rem;
         }
 
         .imagens {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
         }
 
         .imagens img {
             width: 100%;
-            max-width: 500px;
             height: auto;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -71,14 +80,14 @@
 
         .call-to-action {
             text-align: center;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
         }
 
         .call-to-action button {
             background: #007bff;
             color: white;
             border: none;
-            padding: 1rem 2rem;
+            padding: 0.8rem 1.5rem;
             font-size: 1rem;
             border-radius: 5px;
             cursor: pointer;
@@ -90,12 +99,13 @@
         }
 
         #formularioContato {
-            max-width: 600px;
-            margin: 2rem auto;
+            max-width: 90%;
+            margin: 1.5rem auto;
             background: white;
             padding: 1rem;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: none;
         }
 
         footer {
@@ -108,14 +118,74 @@
         .carta-apresentacao {
             background: url('img/background.jpg') no-repeat center center/cover;
             color: white;
-            padding: 2rem;
+            padding: 1.5rem;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .paragrafo-extenso {
             font-size: 0.85rem;
-            line-height: 1.3;
+            line-height: 1.4;
             margin: 0.5rem 0;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            header h2 {
+                font-size: 0.9rem;
+            }
+
+            .link-whatsapp {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .call-to-action button {
+                font-size: 0.9rem;
+                padding: 0.6rem 1rem;
+            }
+
+            footer {
+                font-size: 0.8rem;
+                padding: 0.8rem;
+            }
+
+            .paragrafo-extenso {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.3rem;
+            }
+
+            header h2 {
+                font-size: 0.8rem;
+            }
+
+            .link-whatsapp {
+                font-size: 0.8rem;
+                padding: 0.3rem 0.6rem;
+            }
+
+            .call-to-action button {
+                font-size: 0.8rem;
+                padding: 0.5rem 0.8rem;
+            }
+
+            footer {
+                font-size: 0.7rem;
+                padding: 0.6rem;
+            }
+
+            .paragrafo-extenso {
+                font-size: 0.7rem;
+                line-height: 1.2;
+            }
         }
     </style>
 </head>
@@ -127,30 +197,23 @@
         <h3>Contate-nos pelo WhatsApp: (21) 97931-6601 ou (21) 97999-8628</h3>
         <a href="https://wa.me/5521979316601?text=Quero%20falar%20com%20Jailson%20ou%20Douglas" class="link-whatsapp"
             aria-label="Abrir o WhatsApp para contato">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"
-                style="width: 30px; height: 30px; margin-right: 10px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
             Fale Conosco
         </a>
     </header>
     <main>
         <section class="imagens">
-            <div class="imagem">
-                <img src="img/download.jpg" alt="Prédio moderno">
-            </div>
-            <div class="imagem">
-                <img src="img/faxineira.jpg" alt="Serviços de faxina">
-            </div>
-            <div class="imagem">
-                <img src="img/imagem.jpg" alt="Edifício corporativo">
-                <img src="img/obras.jpg" alt="Sendo construída">
-                <img src="img/pinturas.jpg" alt="Acabamentos e pinturas">
-                <img src="img/limpeza.jpg" alt="Cozinha limpa">
-            </div>
+            <img src="img/download.jpg" alt="Prédio moderno">
+            <img src="img/faxineira.jpg" alt="Serviços de faxina">
+            <img src="img/imagem.jpg" alt="Edifício corporativo">
+            <img src="img/obras.jpg" alt="Obra em construção">
+            <img src="img/pinturas.jpg" alt="Acabamentos e pinturas">
+            <img src="img/limpeza.jpg" alt="Cozinha limpa">
         </section>
         <section class="call-to-action">
             <button onclick="mostrarFormulario()" aria-label="Exibir formulário de contato">Saiba Mais</button>
         </section>
-        <div id="formularioContato" style="display: none;">
+        <div id="formularioContato">
             <h3>Entre em Contato</h3>
             <form id="formContato">
                 <label for="nome">Nome:</label>
@@ -201,3 +264,4 @@
 </body>
 
 </html>
+
