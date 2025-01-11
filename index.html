@@ -102,10 +102,56 @@
             max-width: 90%;
             margin: 1.5rem auto;
             background: white;
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             display: none;
+        }
+
+        #formularioContato h3 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        #formularioContato form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        #formularioContato label {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #555;
+        }
+
+        #formularioContato input,
+        #formularioContato textarea {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #formularioContato textarea {
+            resize: none;
+        }
+
+        #formularioContato button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        #formularioContato button:hover {
+            background: #0056b3;
         }
 
         footer {
@@ -113,13 +159,6 @@
             color: white;
             text-align: center;
             padding: 1rem;
-        }
-
-        .carta-apresentacao {
-            background: url('img/background.jpg') no-repeat center center/cover;
-            color: white;
-            padding: 1.5rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .paragrafo-extenso {
@@ -146,6 +185,14 @@
             .call-to-action button {
                 font-size: 0.9rem;
                 padding: 0.6rem 1rem;
+            }
+
+            #formularioContato {
+                padding: 1rem;
+            }
+
+            #formularioContato h3 {
+                font-size: 1.2rem;
             }
 
             footer {
@@ -177,6 +224,20 @@
                 padding: 0.5rem 0.8rem;
             }
 
+            #formularioContato {
+                padding: 0.8rem;
+            }
+
+            #formularioContato h3 {
+                font-size: 1rem;
+            }
+
+            #formularioContato input,
+            #formularioContato textarea {
+                padding: 0.6rem;
+                font-size: 0.9rem;
+            }
+
             footer {
                 font-size: 0.7rem;
                 padding: 0.6rem;
@@ -195,8 +256,7 @@
         <h1>Miranda Construtora Empreendimento</h1>
         <h2>Excelência em serviços residenciais e comerciais</h2>
         <h3>Contate-nos pelo WhatsApp: (21) 97931-6601 ou (21) 97999-8628</h3>
-        <a href="https://wa.me/5521979316601?text=Quero%20falar%20com%20Jailson%20ou%20Douglas" class="link-whatsapp"
-            aria-label="Abrir o WhatsApp para contato">
+        <a href="https://wa.me/5521979316601?text=Quero%20falar%20com%20Jailson%20ou%20Douglas" class="link-whatsapp">
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
             Fale Conosco
         </a>
@@ -211,7 +271,7 @@
             <img src="img/limpeza.jpg" alt="Cozinha limpa">
         </section>
         <section class="call-to-action">
-            <button onclick="mostrarFormulario()" aria-label="Exibir formulário de contato">Saiba Mais</button>
+            <button onclick="mostrarFormulario()">Saiba Mais</button>
         </section>
         <div id="formularioContato">
             <h3>Entre em Contato</h3>
@@ -228,40 +288,15 @@
     </main>
     <footer>
         <p>&copy; 2024 Miranda Construtora Empreendimento</p>
-        <p>Especialistas em limpeza pós-obra e serviços residenciais</p>
-        <p class="paragrafo-extenso">
-            Prezados Senhores(a),<br>
-            Permita-nos apresentar. Somos a MIRANDA CONSTRUTORA LTDA, uma empresa do ramo de construção civil que já nasceu
-            comprometida com a inovação e a qualidade na execução de serviços. Temos engenheiros, técnicos e mão de obra
-            especializada formando uma equipe comprometida que não hesita em cumprir suas funções com dedicação e
-            comprometimento.
-        </p>
-        <p class="paragrafo-extenso">
-            Nossa empresa está preparada para atender clientes de pequeno, médio e grande porte, oferecendo sempre uma
-            solução inteligente e econômica para quem precisa de reforma ou construir.
-        </p>
     </footer>
     <script>
         function mostrarFormulario() {
             const formulario = document.getElementById('formularioContato');
             formulario.style.display = formulario.style.display === 'none' ? 'block' : 'none';
         }
-
-        document.getElementById('formContato').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const nome = document.getElementById('nome').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const mensagem = document.getElementById('mensagem').value.trim();
-
-            if (!nome || !email || !mensagem) {
-                alert('Por favor, preencha todos os campos.');
-                return;
-            }
-
-            alert(`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso.`);
-        });
     </script>
 </body>
 
 </html>
+
 
