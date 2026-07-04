@@ -42,6 +42,7 @@
             background: #25d366;
             border-radius: 5px;
             transition: background 0.3s ease;
+            margin-top: 10px;
         }
 
         .link-whatsapp:hover {
@@ -54,17 +55,36 @@
             padding: 0 1rem;
         }
 
+        /* CONFIGURAÇÃO DAS IMAGENS GRANDES E DESTACADAS */
         .imagens {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Aumentado o tamanho mínimo para as fotos ficarem maiores */
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .imagem {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            background-color: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .imagem:hover {
+            transform: translateY(-5px); /* Dá um efeito sutil de subir ao passar o mouse */
         }
 
         .imagem img {
             width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            height: 300px; /* Define uma altura padrão para alinhar todas as fotos */
+            object-fit: cover; /* Recorta a imagem proporcionalmente para preencher o espaço sem distorcer */
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .imagem:hover img {
+            transform: scale(1.05); /* Efeito de zoom suave na foto */
         }
 
         .call-to-action {
@@ -96,63 +116,68 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
+        /* Estilo básico para o formulário */
+        #formContato label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        #formContato input, #formContato textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #formContato button {
+            margin-top: 15px;
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
         footer {
             background: #007bff;
             color: white;
             text-align: center;
-            padding: 1rem;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
         }
 
         /* Carta de Apresentação */
         #cartaApresentacao {
             width: 100%;
-            padding: 1rem;
+            padding: 1.5rem;
             margin-top: 2rem;
-            background-color: #f9f9f9;
+            background-color: white;
             border-radius: 8px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            display: block;
-            opacity: 1;
-            transition: all 0.3s ease-in-out;
         }
 
         #cartaApresentacao h2 {
             font-size: 1.4rem;
-            color: #333;
+            color: #007bff;
+            margin-bottom: 10px;
         }
 
         #cartaApresentacao p {
             font-size: 1rem;
             color: #555;
-            line-height: 1.5;
+            line-height: 1.6;
+            margin-bottom: 10px;
         }
 
         @media (max-width: 768px) {
-            #cartaApresentacao {
-                padding: 0.8rem;
-                margin-top: 1rem;
+            .imagens {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajuste para celulares não quebrarem o layout */
             }
-
-            #cartaApresentacao h2 {
-                font-size: 1.2rem;
+            .imagem img {
+                height: 250px;
             }
-
-            #cartaApresentacao p {
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            #cartaApresentacao {
-                font-size: 0.9rem;
-                padding: 0.6rem;
-            }
-        }
-
-        /* Ajustes de parágrafo */
-        p {
-            margin: 0.10rem 0;
-            padding: 0;
         }
     </style>
 </head>
@@ -171,6 +196,7 @@
     </header>
 
     <main>
+        <!-- SEÇÃO DE FOTOS CORRIGIDA E SEPARADA -->
         <section class="imagens">
             <div class="imagem">
                 <img src="img/download.jpg" alt="Prédio moderno">
@@ -180,9 +206,16 @@
             </div>
             <div class="imagem">
                 <img src="img/imagem.jpg" alt="Edifício corporativo">
-                <img src="img/obras.jpg" alt="sendo construida">
-                <img src="img/pinturas.jpg" alt="acabamentos pinturas">
-                <img src="img/limpeza.jpg.jpg" alt="conzinha toda limpa">
+            </div>
+            <div class="imagem">
+                <img src="img/obras.jpg" alt="Obra sendo construída">
+            </div>
+            <div class="imagem">
+                <img src="img/pinturas.jpg" alt="Acabamentos e pinturas">
+            </div>
+            <div class="imagem">
+                <!-- Corrigido o nome do arquivo que estava com duas extensões .jpg.jpg -->
+                <img src="img/limpeza.jpg" alt="Cozinha toda limpa">
             </div>
         </section>
 
@@ -207,17 +240,15 @@
         <section id="cartaApresentacao">
             <h2>Bem-vindo à Miranda Construtora</h2>
             <p>Somos especializados em serviços de construção e reforma para residências e empresas. Nossa missão é entregar qualidade e excelência em cada projeto.</p>
+            <p><strong>Nossos Serviços:</strong> Hidráulica, ladrilho, elétrica, alvenaria, pintura, entre outros.</p>
             <p>Entre em contato conosco para saber mais sobre como podemos transformar seu espaço.</p>
-            <p>hindraulica, ladrilhos e eletrica e alvenaria, pintura etc.</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Miranda Construtora Empreendimento</p>
+        <p>&copy; 2026 Miranda Construtora Empreendimento</p>
         <p>Especialistas em limpeza pós-obra e serviços residenciais</p>
-        <p>Prezados Senhores(a), permita-nos apresentar. Somos a MIRANDA CONSTRUTORA LTDA, uma empresa do ramo de construção civil
-           fazendo faxina predial e residenciais, limpeza pos obras  
-        </p>
+        <p>Prezados Senhores(as), permita-nos apresentar. Somos a MIRANDA CONSTRUTORA LTDA, uma empresa do ramo de construção civil realizando faxina predial e residencial, além de limpeza pós-obras.</p>
     </footer>
 
     <script>
@@ -243,6 +274,3 @@
 </body>
 
 </html>
-
-
-
