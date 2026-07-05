@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Miranda Construtora Empreendimento</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Reset básico */
+        /* Reset moderno */
         * {
             margin: 0;
             padding: 0;
@@ -15,174 +14,272 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f4f4f9;
+            background-color: #f8fafc;
         }
 
+        /* Cabeçalho Profissional */
         header {
-            background: #007bff;
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
             color: white;
             text-align: center;
-            padding: 1rem 0.5rem;
+            padding: 3rem 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
         }
 
+        header h2 {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: #93c5fd;
+            margin-bottom: 1rem;
+        }
+
+        header h3 {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Botão do WhatsApp */
         .link-whatsapp {
             display: inline-flex;
             align-items: center;
             text-decoration: none;
             color: white;
-            font-weight: bold;
-            padding: 0.5rem 1rem;
-            background: #25d366;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-            margin-top: 10px;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            background: #22c55e;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(34, 197, 94, 0.4);
+            transition: all 0.3s ease;
         }
 
         .link-whatsapp:hover {
-            background: #1b9e4d;
+            background: #16a34a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(34, 197, 94, 0.5);
         }
 
         main {
             max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
         }
 
-        /* CONFIGURAÇÃO DAS IMAGENS */
+        /* Galeria de Fotos Estilo Mosaico */
         .imagens {
             display: grid;
-            /* Mantém o grid responsivo */
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
             gap: 1.5rem;
-            margin-top: 1.5rem;
+            margin-bottom: 3rem;
         }
 
         .imagem {
+            position: relative;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            background-color: #fff; /* Fundo branco caso a imagem não preencha tudo */
-            transition: transform 0.3s ease;
-            /* Define uma altura para o container da imagem */
-            height: 180px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            background-color: #fff;
+            height: 240px; 
+            transition: all 0.3s ease;
         }
 
         .imagem:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         .imagem img {
-            max-width: 100%;
-            max-height: 100%;
-            /* CORREÇÃO PRINCIPAL: 'contain' mostra a imagem inteira sem cortar */
-            object-fit: contain; 
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Preenche o espaço cortando as sobras de forma elegante */
             display: block;
-            transition: transform 0.3s ease;
+            transition: transform 0.5s ease;
         }
 
         .imagem:hover img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
 
+        /* Legenda discreta na imagem */
+        .imagem::after {
+            content: attr(data-legenda);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .imagem:hover::after {
+            opacity: 1;
+        }
+
+        /* Call to Action */
         .call-to-action {
             text-align: center;
-            margin: 2rem 0;
+            margin: 3rem 0;
         }
 
         .call-to-action button {
-            background: #007bff;
+            background: #1e3a8a;
             color: white;
             border: none;
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            border-radius: 5px;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            box-shadow: 0 4px 6px rgba(30, 58, 138, 0.2);
+            transition: all 0.3s ease;
         }
 
         .call-to-action button:hover {
-            background: #0056b3;
+            background: #1d4ed8;
+            transform: translateY(-1px);
         }
 
+        /* Formulário de Contato Limpo */
         #formularioContato {
-            max-width: 600px;
+            max-width: 550px;
             margin: 2rem auto;
             background: white;
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #formularioContato h3 {
+            margin-bottom: 1.5rem;
+            color: #1e3a8a;
+            font-size: 1.5rem;
         }
 
         #formContato label {
             display: block;
-            margin-top: 10px;
-            font-weight: bold;
+            margin-top: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #475569;
         }
+
         #formContato input, #formContato textarea {
             width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 6px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s;
         }
+
+        #formContato input:focus, #formContato textarea:focus {
+            outline: none;
+            border-color: #1e3a8a;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+        }
+
         #formContato button {
-            margin-top: 15px;
-            background: #25d366;
+            width: 100%;
+            margin-top: 1.5rem;
+            background: #22c55e;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
+            padding: 12px;
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s;
         }
 
-        footer {
-            background: #007bff;
-            color: white;
-            text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 3rem;
+        #formContato button:hover {
+            background: #16a34a;
         }
 
+        /* Seções de Conteúdo */
         #cartaApresentacao {
-            width: 100%;
-            padding: 1.5rem;
-            margin-top: 2rem;
             background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            margin-top: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
         }
 
         #cartaApresentacao h2 {
-            font-size: 1.4rem;
-            color: #007bff;
-            margin-bottom: 10px;
+            font-size: 1.75rem;
+            color: #1e3a8a;
+            margin-bottom: 1rem;
         }
 
         #cartaApresentacao p {
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 10px;
+            font-size: 1.05rem;
+            color: #475569;
+            margin-bottom: 1.2rem;
         }
 
+        /* Rodapé Informativo */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            margin-top: 5rem;
+            font-size: 0.95rem;
+            border-top: 4px solid #1e3a8a;
+        }
+
+        footer p {
+            margin-bottom: 0.75rem;
+        }
+
+        footer .copyright {
+            color: white;
+            font-weight: 600;
+        }
+
+        footer .sobre-nos {
+            max-width: 700px;
+            margin: 1.5rem auto 0 auto;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #64748b;
+            border-top: 1px solid #334155;
+            padding-top: 1.5rem;
+        }
+
+        /* Responsividade */
         @media (max-width: 768px) {
-            .imagens {
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            }
-            .imagem {
-                height: 140px; /* Menor em telas pequenas */
-            }
+            header h1 { font-size: 1.8rem; }
+            main { margin: 1.5rem auto; }
+            .imagens { grid-template-columns: 1fr; }
+            .imagem { height: 200px; }
         }
     </style>
 </head>
@@ -192,71 +289,77 @@
         <h1>Miranda Construtora Empreendimento</h1>
         <h2>Excelência em serviços residenciais e comerciais</h2>
         <h3>Contate-nos pelo WhatsApp: (21) 97931-6601 ou (21) 97999-8628</h3>
-        <a href="https://wa.me/5521979316601?text=Quero%20falar%20com%20Jailson%20ou%20Douglas" class="link-whatsapp"
-            aria-label="Abrir o WhatsApp para contato">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"
-                style="width: 30px; height: 30px; margin-right: 10px;">
+        <a href="https://wa.me/5521979316601?text=Quero%20falar%20com%20Jailson%20ou%20Douglas" class="link-whatsapp" aria-label="Abrir o WhatsApp para contato">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 24px; height: 24px; margin-right: 10px;">
             Fale Conosco
         </a>
     </header>
 
     <main>
         <section class="imagens">
-            <div class="imagem">
-                <img src="img/download.jpg" alt="Prédio moderno">
+            <div class="imagem" data-legenda="Prédios e Estruturas Modernas">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=500&q=80" alt="Prédio moderno">
             </div>
-            <div class="imagem">
-                <img src="img/faxineira.jpg" alt="Serviços de faxina">
+            <div class="imagem" data-legenda="Serviços Profissionais de Limpeza">
+                <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=500&q=80" alt="Serviços de faxina">
             </div>
-            <div class="imagem">
-                <img src="img/imagem.jpg" alt="Edifício corporativo">
+            <div class="imagem" data-legenda="Infraestrutura Corporativa">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=80" alt="Edifício corporativo">
             </div>
-            <div class="imagem">
-                <img src="img/obras.jpg" alt="Obra sendo construída">
+            <div class="imagem" data-legenda="Acompanhamento e Execução de Obras">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=500&q=80" alt="Obra sendo construída">
             </div>
-            <div class="imagem">
-                <img src="img/pinturas.jpg" alt="Acabamentos e pinturas">
+            <div class="imagem" data-legenda="Pinturas e Acabamentos Finos">
+                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=500&q=80" alt="Acabamentos e pinturas">
             </div>
-            <div class="imagem">
-                <img src="img/cozinha.jpg" alt="Cozinha toda limpa">
+            <div class="imagem" data-legenda="Limpeza Pós-Obra Premium (Cozinhas e Banheiros)">
+                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=500&q=80" alt="Cozinha toda limpa">
             </div>
         </section>
 
         <section class="call-to-action">
-            <button onclick="mostrarFormulario()" aria-label="Exibir formulário de contato">Saiba Mais</button>
+            <button onclick="mostrarFormulario()" aria-label="Exibir formulário de contato">Solicitar Orçamento / Saiba Mais</button>
         </section>
 
-        <div id="formularioContato" style="display: none;">
+        <div id="formularioContato">
             <h3>Entre em Contato</h3>
             <form id="formContato">
                 <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
+                <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+                
                 <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+                
                 <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
-                <button type="submit">Enviar</button>
+                <textarea id="mensagem" name="mensagem" rows="4" required placeholder="Como podemos ajudar no seu projeto ou limpeza?"></textarea>
+                
+                <button type="submit">Enviar Mensagem</button>
             </form>
         </div>
 
         <section id="cartaApresentacao">
             <h2>Bem-vindo à Miranda Construtora</h2>
-            <p>Somos especializados em serviços de construção e reforma para residências e empresas. Nossa missão é entregar qualidade e excelência em cada projeto.</p>
-            <p><strong>Nossos Serviços:</strong> Hidráulica, ladrilho, elétrica, alvenaria, pintura, entre outros.</p>
-            <p>Entre em contato conosco para saber mais sobre como podemos transformar seu espaço.</p>
+            <p>Somos especializados em serviços de construção, reforma e manutenção para residências e empresas. Nossa missão é entregar qualidade, cumprimento de prazos e excelência em cada projeto.</p>
+            <p><strong>Nossos Serviços:</strong> Engenharia civil, hidráulica, colocação de ladrilhos e porcelanatos, elétrica predial, alvenaria estrutural, pintura interna/externa e muito mais.</p>
+            <p>Clique no botão acima ou nos chame no WhatsApp para transformar seu ambiente com quem entende do assunto.</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Miranda Construtora Empreendimento</p>
-        <p>Especialistas em limpeza pós-obra e serviços residenciais</p>
-        <p>Prezados Senhores(as), permita-nos apresentar. Somos a MIRANDA CONSTRUTORA LTDA, uma empresa do ramo de construção civil realizando faxina predial e residencial, além de limpeza pós-obras.</p>
+        <p class="copyright">&copy; 2026 Miranda Construtora Empreendimento</p>
+        <p>Especialistas em Limpeza Pós-Obra, Reformas e Serviços Residenciais</p>
+        <p class="sobre-nos">Prezados Senhores(as), permita-nos apresentar. Somos a MIRANDA CONSTRUTORA LTDA, uma empresa sólida no ramo da construção civil realizando também faxina predial, comercial, residencial, e tratamentos específicos de limpeza pós-obras com rigoroso padrão de qualidade.</p>
     </footer>
 
     <script>
         function mostrarFormulario() {
             const formulario = document.getElementById('formularioContato');
-            formulario.style.display = formulario.style.display === 'none' ? 'block' : 'none';
+            if (formulario.style.display === 'block') {
+                formulario.style.display = 'none';
+            } else {
+                formulario.style.display = 'block';
+                formulario.scrollIntoView({ behavior: 'smooth' }); // Faz a tela rolar suavemente até o formulário
+            }
         }
 
         document.getElementById('formContato').addEventListener('submit', function (event) {
@@ -270,7 +373,9 @@
                 return;
             }
 
-            alert('Mensagem enviada com sucesso!');
+            alert('Obrigado, ' + nome + '! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.');
+            document.getElementById('formContato').reset();
+            document.getElementById('formularioContato').style.display = 'none';
         });
     </script>
 </body>
